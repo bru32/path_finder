@@ -208,9 +208,11 @@ class Snake(tk.Frame):
     """animation loop
     """
     if control:
+      #  pause loop
       self.after(1000, self.animloop)
     else:
       if buffer:
+        #  pop next key from buffer
         self.dir = buffer.popleft()
       self.canvas.delete("snake")
       self.move_snake()

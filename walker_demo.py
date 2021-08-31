@@ -1,5 +1,9 @@
 # tkinter walker demo
 
+"""
+Random walker with a trail.
+"""
+
 __author__ = "Bruce Wernick"
 __date__ = "25 August 2021"
 
