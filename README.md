@@ -1,4 +1,4 @@
-# Path Finder
+## Path Finder
 
 Some experiments with DFS, Dijkstra and **AStar**.
 
@@ -11,6 +11,13 @@ Actually, it's surprising how fast and smooth the amination can be...
 
  ![Image of grid](screen_shot.png)
  
+
++ show_grid uses grid_search for find a path
+
++ snake_template is a simple snake game that wraps around and doesn't die when the snake goes over itself.
+
++ random_walker is a random walk around the grid.  The idea is to progress to more useful tasks.
+
 
 
 >**Bruce Wernick**
