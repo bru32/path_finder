@@ -1,11 +1,11 @@
-# tkinter walker
+# tkinter walker demo
 
 __author__ = "Bruce Wernick"
 __date__ = "25 August 2021"
 
 import tkinter as tk
 from collections import deque
-from uRandom import rand_step
+from uWalker import rand_step
 from uColor import *
 
 
@@ -87,7 +87,7 @@ class MainForm(tk.Frame):
 if __name__ == "__main__":
 
   app = tk.Tk()
-  app.title("Walker Texas Ranger")
+  app.title("Random Walker")
   app.geometry('540x540+960+40')
   app.configure(bg='black')
   app.minsize(300, 300)

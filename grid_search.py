@@ -1,4 +1,4 @@
-# Grid Searchers
+# Grid Search
 
 __author__ = 'Bruce Wernick'
 __date__ = '29 August 2021'
@@ -6,7 +6,7 @@ __date__ = '29 August 2021'
 
 from collections import deque
 import heapq
-from random import randint, shuffle
+from random import randint
 
 
 class PQueue:
@@ -266,8 +266,6 @@ def astar_search(graph, a_node, b_node):
 
 # ---------------------------------------------------------------------
 
-# tests
-
 def rand_point(max_rows, max_cols):
   return randint(0, max_rows), randint(0, max_cols)
 
@@ -293,10 +291,13 @@ def rand_grid(rows, cols, walls):
 
 # ---------------------------------------------------------------------
 
+def test1():
+  """ example usage """
+  grid, start, goal = rand_grid(10, 10, 19)
+  path = astar_search(grid, start, goal)
+  print(path)
+
+
 if __name__ == "__main__":
 
-  # example usage
-  sample_grid, start_node, goal_node = rand_grid(10, 10, 19)
-  # curr_path = find_path(sample_grid, start_node, goal_node)
-  curr_path = astar_search(sample_grid, start_node, goal_node)
-  print(curr_path)
+  test1()

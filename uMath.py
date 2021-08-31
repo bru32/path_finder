@@ -1,4 +1,4 @@
-# math_util
+# Math / Numeric utils
 
 __author__ = "Bruce Wernick"
 __date__ = "20 August 2021"
@@ -17,8 +17,12 @@ def linear_range(start_value, end_value, step_count):
   return arr
 
 
+def test1():
+  print(linear_range(10, 20, 11))
+
+
 # ---------------------------------------------------------------------
 
 if __name__ == "__main__":
 
-  print(linear_range(10, 20, 11))
+  test1()

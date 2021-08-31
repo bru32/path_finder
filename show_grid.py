@@ -80,7 +80,7 @@ class MainForm(tk.Frame):
       j, i = cp
       self.shade_rect(j, i, "#486270", "wall")
 
-    search_funcs = [find_path, shortest_path, fsp, bfs_search, dijkstra_search, astar_search]
+    #  find_path, shortest_path, fsp, bfs_search, dijkstra_search, astar_search
     search_func = astar_search
     self.path = search_func(self.grid, self.start, self.goal)
 
@@ -135,7 +135,7 @@ class MainForm(tk.Frame):
 if __name__ == "__main__":
 
   app = tk.Tk()
-  app.title("path finder")
+  app.title("AStar Path Finder")
   app.geometry('440x440+1000+100')
   main = MainForm(app)
   app.mainloop()

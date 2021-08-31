@@ -54,4 +54,3 @@ def rand_color(r0=0, r1=255, g0=0, g1=255, b0=0, b1=255):
   g = randint(g0, g1)
   b = randint(b0, b1)
   return f"#{r:02x}{g:02x}{b:02x}"
-

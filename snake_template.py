@@ -1,4 +1,4 @@
-# tkinter snake template
+# tkinter snake demo
 
 __author__ = "Bruce Wernick"
 __date__ = "22 August 2021"
@@ -23,6 +23,7 @@ def rgb_lerp(a, b, f):
   b = int(a[2] + f * (b[2] - a[2]))
   return (r, g, b)
 
+
 def hex_lerp(a, b, f):
   a = hex_to_rgb(a)
   b = hex_to_rgb(b)
@@ -30,6 +31,7 @@ def hex_lerp(a, b, f):
   return rgb_to_hex(*rgb)
 
 # ---------------------------------------------------------------------
+
 
 dirs = ('Left', 'Up', 'Right', 'Down')
 
@@ -232,7 +234,7 @@ class Snake(tk.Frame):
 if __name__ == "__main__":
 
   app = tk.Tk()
-  app.title("tkinter snake template")
+  app.title("tkinter Snake")
   app.geometry('640x680+880+50')
   app.resizable(False, False)
   snake = Snake(app)

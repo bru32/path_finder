@@ -1,4 +1,4 @@
-# Random walker utils
+# Random walk utils
 
 __author__ = "Bruce Wernick"
 __date__ = "31 August 2021"

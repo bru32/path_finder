@@ -1,4 +1,7 @@
-# tkinter random walker template
+# tkinter random walker demo
+
+__author__ = "Bruce Wernick"
+__date__ = "20 August 2021"
 
 
 from tkinter import *
@@ -7,6 +10,7 @@ from recordclass import recordclass
 from copy import copy
 from colorsys import hls_to_rgb
 
+
 # Declaring Current Position class (using a recordclass)
 CurrPos = recordclass('CurrPos', 'x y d color')
 
@@ -14,9 +18,7 @@ CurrPos = recordclass('CurrPos', 'x y d color')
 def color_step(i, imax):
   """step to a color based on the index
   """
-  h = 0.36 * i / imax
-  l = 0.65
-  s = 0.6
+  h, l, s = 0.36 * i / imax, 0.65, 0.6
   r, g, b = hls_to_rgb(h, l, s)
   r, g, b = int(r * 255), int(g * 255), int(b * 255)
   hx = rgb_to_hex(r, g, b)
@@ -26,9 +28,9 @@ def color_step(i, imax):
 def hex_to_rgb(value):
   """convert hex color to r,g,b values
   """
-  hex = value.lstrip('#')
-  r,g,b = tuple(int(hex[i: i+2], 16) for i in (0, 2, 4))
-  return (r,g,b)
+  hx = value.lstrip('#')
+  r, g, b = tuple(int(hx[i: i+2], 16) for i in (0, 2, 4))
+  return r, g, b
 
 
 def rgb_to_hex(r, g, b):
@@ -224,7 +226,7 @@ if __name__ == "__main__":
 
   # Example of animation with tkinter
   app = Tk()
-  app.title("tkinter animation template")
+  app.title("tkinter animation")
   app.geometry('440x440+1000+100')
   main = MainForm(app)
   app.after(1, main.animloop)

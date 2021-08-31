@@ -1,5 +1,10 @@
 # Root finder
 
+"""
+Experiment with minimal root finders.
+Uses args to make the error function more useful.
+"""
+
 __author__ = "Bruce Wernick"
 __date__ = "31 August 2021"
 
@@ -12,7 +17,7 @@ def within_tol(fx, dx, tol):
   return abs(fx) <= tol or abs(dx) <= tol
 
 
-def newt(f, x, args=(), maxi=24, tol=1e-9):
+def newt(f, x, args=(), maxi=24, tol=1e-5):
   """ Newton root finder """
   for i in range(maxi):
     xo = x
@@ -37,7 +42,7 @@ def test_newt():
   # solve with starting guess
   guess_x = 1.0
   root = newt(test_func, guess_x, args=(-3, 5))
-  print(f"{root=:0.9f}")
+  print(f"{root=:0.4f}")
 
 
 if __name__ == "__main__":
