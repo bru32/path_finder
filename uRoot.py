@@ -36,8 +36,10 @@ def test_newt():
   """ example of using newt root finder """
 
   def test_func(x, a, b):
-    """ return function value and slope at x. """
-    return (x + a)*(x + b), 2*x + a + b
+    """ Return function value and slope at x.
+        Roots are -a and -b (3, -5).
+    """
+    return (x + a) * (x + b), 2 * x + a + b
 
   # solve with starting guess
   guess_x = 1.0

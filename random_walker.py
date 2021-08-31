@@ -8,66 +8,14 @@ from tkinter import *
 from random import randint, choice
 from recordclass import recordclass
 from copy import copy
-from colorsys import hls_to_rgb
+from uColor import *
 
 
 # Declaring Current Position class (using a recordclass)
 CurrPos = recordclass('CurrPos', 'x y d color')
 
 
-def color_step(i, imax):
-  """step to a color based on the index
-  """
-  h, l, s = 0.36 * i / imax, 0.65, 0.6
-  r, g, b = hls_to_rgb(h, l, s)
-  r, g, b = int(r * 255), int(g * 255), int(b * 255)
-  hx = rgb_to_hex(r, g, b)
-  return hx
-
-
-def hex_to_rgb(value):
-  """convert hex color to r,g,b values
-  """
-  hx = value.lstrip('#')
-  r, g, b = tuple(int(hx[i: i+2], 16) for i in (0, 2, 4))
-  return r, g, b
-
-
-def rgb_to_hex(r, g, b):
-  """red, green, blue colors 0-255
-     returns hex color string
-  """
-  return f'#{r:02x}{g:02x}{b:02x}'
-
-
-def rgb_lerp(a, b, f):
-  """linear blend rgb color a and b
-  """
-  r = int(a[0] + f * (b[0] - a[0]))
-  g = int(a[1] + f * (b[1] - a[1]))
-  b = int(a[2] + f * (b[2] - a[2]))
-  return r, g, b
-
-
-def hex_lerp(a, b, f):
-  """linear blend hex colors a and b
-  """
-  a = hex_to_rgb(a)
-  b = hex_to_rgb(b)
-  rgb = rgb_lerp(a, b, f)
-  return rgb_to_hex(*rgb)
-
-
-def rand_color(r0=0, r1=255, g0=0, g1=255, b0=0, b1=255):
-  """random rgb with the option to limit the ranges
-  """
-  r = randint(r0, r1)
-  g = randint(g0, g1)
-  b = randint(b0, b1)
-  return f"#{r:02x}{g:02x}{b:02x}"
-
 # ---------------------------------------------------------------------
-
 
 class MainForm(Frame):
 
