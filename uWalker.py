@@ -1,5 +1,9 @@
 # Random walk utils
 
+"""
+Random step with boundry limits.
+"""
+
 __author__ = "Bruce Wernick"
 __date__ = "31 August 2021"
 
@@ -62,6 +66,8 @@ def rand_step(x, y, d, nx, ny, edge_func=limit):
   return x, y, d
 
 
+# ---------------------------------------------------------------------
+
 def test1():
   """ Take n random steps """
   nx, ny = 20, 20  # set the board size
@@ -73,8 +79,6 @@ def test1():
 
   print(f"Final position after {n} steps = ({x}, {y})")
 
-
-# ---------------------------------------------------------------------
 
 if __name__ == "__main__":
 

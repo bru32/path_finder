@@ -36,7 +36,7 @@ class MainForm(Frame):
     self.canvas = Canvas(self, width=self.fwidth, height=self.fheight, bg="#384a51")
 
     # store current position cp = (x, y, d, color)
-    self.cp = CurrPos(self.nx//2, self.ny//2, 0, "red")
+    self.cp = CurrPos(self.nx // 2, self.ny // 2, 0, "red")
 
     # a_node with empty trail
     self.trail = []
@@ -72,11 +72,7 @@ class MainForm(Frame):
     dy = self.dy
     x = cp.x * dx
     y = cp.y * dy
-
-    # color = hex_lerp("#ad7600", "#384a51", i/imax)
-    # color = "#ad7600"
     color = color_step(i, imax)
-
     self.canvas.create_rectangle(x+g, y+g, x+dx-g, y+dy-g, width=1, outline="#593408", fill=color)
 
   def draw_trail(self):

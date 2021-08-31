@@ -77,6 +77,7 @@ class MainForm(tk.Frame):
     self.canvas.update()
 
   def animloop(self):
+    """ animation loop """
     self.move_snake()
     self.draw_snake()
     app.after(24, self.animloop)
