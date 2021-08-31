@@ -1,19 +1,19 @@
 # Path Finder
 
-Some experiments with DFS, Dijkstra and **AStar**
+Some experiments with DFS, Dijkstra and **AStar**.
 
-Using Python 3 and drawing on a tkinter canvas.
+I am using minimal Python 3 (minimal libraries) and drawing on a tkinter canvas.
+Specifically, it is to experiment with methods, not to demonstrate a finished product.
 
-Also experimenting with animation loops...
+I will also experimenting with animation loops in tkinter using root.after().
+Actually, it's surprising how fast and smooth the amination can be...
 
 
  ![Image of grid](screen_shot.png)
  
 
 
-**Bruce Wernick**
-
-_TechniSolve Software_
-
-_August 2021_
-
+>####**Bruce Wernick**
+> 
+>_August 2021, TechniSolve Software_
+>
