@@ -1,1 +1,5 @@
 # path_finder
+
+Some experiments with DFS, Dijkstra and AStar
+
+Using Python 3 and drawing on a tkinter canvas.
