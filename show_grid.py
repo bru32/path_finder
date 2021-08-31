@@ -6,6 +6,7 @@ __date__ = '29 August 2021'
 import tkinter as tk
 from grid_search import *
 from uColor import hex_lerp
+import uGrid
 
 
 class MainForm(tk.Frame):
@@ -38,7 +39,7 @@ class MainForm(tk.Frame):
     self.path = []
 
     nwalls = int(1.616*(self.ny + self.nx))
-    self.grid, self.start, self.goal = rand_grid(self.ny, self.nx, nwalls)
+    self.grid, self.start, self.goal = uGrid.rand_grid(self.ny, self.nx, nwalls)
     self.do_search()
 
     self.canvas.place(x=20, y=20)
@@ -104,7 +105,7 @@ class MainForm(tk.Frame):
     ny = self.ny
     nx = self.nx
     nwalls = int(1.616*(ny+nx))
-    self.grid, self.start, self.goal = rand_grid(ny, nx, nwalls)
+    self.grid, self.start, self.goal = uGrid.rand_grid(ny, nx, nwalls)
     self.do_search()
 
   def place_start(self, event):

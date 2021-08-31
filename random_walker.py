@@ -5,7 +5,7 @@ __date__ = "20 August 2021"
 
 
 from tkinter import *
-from random import randint, choice
+from random import choice
 from recordclass import recordclass
 from copy import copy
 from uColor import *

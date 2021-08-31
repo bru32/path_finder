@@ -55,8 +55,9 @@ class Snake(tk.Frame):
     self.y = self.ny // 2
     self.dir = 'Right'
     self.tail = []
-    self.ntail = 3 # starting tail
+    self.ntail = 3  # starting tail
     self.score = 0
+    self.food = None
     self.move_food()
     self.canvas.place(x=20, y=20)
     self.pack(fill=tk.BOTH, expand=1)
@@ -90,21 +91,33 @@ class Snake(tk.Frame):
     edge = wrap
 
     # take step
-    if self.dir == 'Right': self.x += 1
-    elif self.dir == 'Up': self.y -= 1
-    elif self.dir == 'Left': self.x -= 1
-    elif self.dir == 'Down': self.y += 1
+    if self.dir == 'Right':
+      self.x += 1
+    elif self.dir == 'Up':
+      self.y -= 1
+    elif self.dir == 'Left':
+      self.x -= 1
+    elif self.dir == 'Down':
+      self.y += 1
 
     if edge == wrap:
-      if self.x < 0: self.x = self.nx - 1
-      if self.y < 0: self.y = self.ny - 1
-      if self.x > self.nx - 1: self.x = 0
-      if self.y > self.ny - 1: self.y = 0
+      if self.x < 0:
+        self.x = self.nx - 1
+      if self.y < 0:
+        self.y = self.ny - 1
+      if self.x > self.nx - 1:
+        self.x = 0
+      if self.y > self.ny - 1:
+        self.y = 0
     elif edge == limit:
-      if self.x < 0: self.x = 0
-      if self.y < 0: self.y = 0
-      if self.x > self.nx - 1: self.x = self.nx - 1
-      if self.y > self.ny - 1: self.y = self.ny - 1
+      if self.x < 0:
+        self.x = 0
+      if self.y < 0:
+        self.y = 0
+      if self.x > self.nx - 1:
+        self.x = self.nx - 1
+      if self.y > self.ny - 1:
+        self.y = self.ny - 1
 
     # assign current point
     cp = (self.x, self.y)
@@ -138,7 +151,7 @@ class Snake(tk.Frame):
     # try simple random
     x = randint(0, self.nx-1)
     y = randint(0, self.ny-1)
-    cp = (x,y)
+    cp = (x, y)
     if cp not in self.tail:
       self.food = cp
       return
@@ -148,7 +161,7 @@ class Snake(tk.Frame):
     spaces = []
     for r in range(self.ny):
       for c in range(self.nx):
-        cp = c,r
+        cp = c, r
         if cp not in self.tail:
           spaces.append(cp)
 
@@ -171,8 +184,7 @@ class Snake(tk.Frame):
       else:
         color = hex_lerp("#b89000", "#a82a00", i/(self.ntail-1))
       coords = x+g, y+g, x+dx-g, y+dy-g
-      self.canvas.create_rectangle(coords, width=1,
-        outline="#593408", fill=color, tag="snake")
+      self.canvas.create_rectangle(coords, width=1, outline="#593408", fill=color, tag="snake")
 
   def draw_food(self):
     self.canvas.delete("food")
@@ -182,10 +194,9 @@ class Snake(tk.Frame):
     x = self.food[0] * dx
     y = self.food[1] * dy
     coords = x+g, y+g, x+dx-g, y+dy-g
-    self.canvas.create_rectangle(coords, width=1,
-      outline="#593408", fill="green", tag="food")
+    self.canvas.create_rectangle(coords, width=1, outline="#593408", fill="green", tag="food")
 
-  def space_bar(self, e):
+  def space_bar(self):
     """pause animation
     """
     global control

@@ -5,9 +5,8 @@ __date__ = '29 August 2021'
 
 
 from collections import deque
-from random import randint
 from pqueue import PQueue
-from uGrid import Grid
+import uGrid
 
 
 def find_path(graph, a_node, b_node, search_path=None):
@@ -91,11 +90,8 @@ def shortest_path(graph, a_node, b_node):
         front.append(np)
         came_from[np] = [came_from[cp], np]
 
-  """ flatten added by Bruce Wernick
-      This is purely cosmetic and not ideal.
-      It looks like the came_from dict
-      is storing unnecessary information!
-      print(came_from.get(b_node))
+  """flatten added by Bruce Wernick. This is purely cosmetic and not ideal.
+     It looks like the came_from dict is storing unnecessary information!
   """
   return flatten(came_from.get(b_node))
 
@@ -163,7 +159,7 @@ def dijkstra_search(graph, a_node, b_node):
     if cp == b_node:
       break
     for np in graph.neighbors(cp):
-      new_cost = cost_so_far[cp] + graph.cost(cp, np)
+      new_cost = cost_so_far.get(cp) + graph.cost(cp, np)
       if np not in cost_so_far or new_cost < cost_so_far[np]:
         cost_so_far[np] = new_cost
         k = new_cost
@@ -189,7 +185,7 @@ def astar_search(graph, a_node, b_node):
     if cp == b_node:
       break
     for np in graph.neighbors(cp):
-      new_cost = cost_so_far[cp] + graph.cost(cp, np)
+      new_cost = cost_so_far.get(cp) + graph.cost(cp, np)
       if np not in cost_so_far or new_cost < cost_so_far[np]:
         cost_so_far[np] = new_cost
         k = new_cost + heuristic(np, b_node)
@@ -200,37 +196,12 @@ def astar_search(graph, a_node, b_node):
 
 # ---------------------------------------------------------------------
 
-def rand_point(max_rows, max_cols):
-  return randint(0, max_rows), randint(0, max_cols)
-
-
-def rand_grid(rows, cols, walls):
-  """ Create a random grid with a_node and b_node """
-  grid = Grid(rows, cols)
-  grid.walls = []
-  while len(grid.walls) < walls:
-    cp = rand_point(rows - 1, cols - 1)
-    if cp not in grid.walls:
-      grid.walls.append(cp)
-  while 1:
-    start = rand_point(rows - 1, cols - 1)
-    if start not in grid.walls:
-      break
-  while 1:
-    goal = rand_point(rows - 1, cols - 1)
-    if goal not in grid.walls and goal != start:
-      break
-  return grid, start, goal
-
-
-# ---------------------------------------------------------------------
-
 def test1():
   """ example usage """
   rows = 10
   cols = 10
   walls = 19
-  grid, start, goal = rand_grid(rows, cols, walls)
+  grid, start, goal = uGrid.rand_grid(rows, cols, walls)
   path = astar_search(grid, start, goal)
   print(path)
 
