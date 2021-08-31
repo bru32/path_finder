@@ -13,7 +13,7 @@ Actually, it's surprising how fast and smooth the amination can be...
  
 
 
->####**Bruce Wernick**
+**Bruce Wernick**
 > 
 >_August 2021, TechniSolve Software_
 >
