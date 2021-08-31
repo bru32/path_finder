@@ -5,33 +5,12 @@ __date__ = "22 August 2021"
 
 
 import tkinter as tk
-from random import randint, choice
+from random import choice
 from collections import deque
+from uColor import *
 
-
-def hex_to_rgb(value):
-  hex = value.lstrip('#')
-  r,g,b = tuple(int(hex[i: i+2], 16) for i in (0, 2, 4))
-  return (r,g,b)
-
-def rgb_to_hex(r, g, b):
-  return f'#{r:02x}{g:02x}{b:02x}'
-
-def rgb_lerp(a, b, f):
-  r = int(a[0] + f * (b[0] - a[0]))
-  g = int(a[1] + f * (b[1] - a[1]))
-  b = int(a[2] + f * (b[2] - a[2]))
-  return (r, g, b)
-
-
-def hex_lerp(a, b, f):
-  a = hex_to_rgb(a)
-  b = hex_to_rgb(b)
-  rgb = rgb_lerp(a, b, f)
-  return rgb_to_hex(*rgb)
 
 # ---------------------------------------------------------------------
-
 
 dirs = ('Left', 'Up', 'Right', 'Down')
 
@@ -40,6 +19,7 @@ control = False
 
 # key buffer
 buffer = deque()
+
 
 class Snake(tk.Frame):
 
@@ -65,8 +45,7 @@ class Snake(tk.Frame):
     self.label.place(relx=0.5, rely=0.97, anchor=tk.CENTER)
 
     # drawing canvas
-    self.canvas = tk.Canvas(self,
-      width=fw, height=fh, bg="#384a51")
+    self.canvas = tk.Canvas(self, width=fw, height=fh, bg="#384a51")
 
     self.canvas.bind_all("<space>", self.space_bar)
 
