@@ -19,6 +19,8 @@ Actually, it's surprising how fast and smooth the amination can be...
 + random_walker is a random walk around the grid.  The idea is to progress to more useful tasks.
 
 
+The root finder doesn't really belong here.  I put it here temporarily 'till I find a suitable place.
+
 
 >**Bruce Wernick**
 > 
