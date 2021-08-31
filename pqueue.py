@@ -22,4 +22,3 @@ class PQueue:
 
   def get(self):
     return heapq.heappop(self.elements)[1]
-

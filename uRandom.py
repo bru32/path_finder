@@ -14,7 +14,7 @@ def rand_point(rows, cols):
   return r, c
 
 
-def rand_byte(value = (0, 255)):
+def rand_byte(value=(0, 255)):
   """ random byte """
   if type(value) is int:
     return value
@@ -23,7 +23,7 @@ def rand_byte(value = (0, 255)):
   return random.randint(0, 255)
 
 
-def rand_color(red=(92,220), green=(92,220), blue=(92,220)):
+def rand_color(red=(92, 220), green=(92, 220), blue=(92, 220)):
   """ Random red, green, blue with the option to limit the ranges.
       The ranges are tuples 0..255.
   """
@@ -47,7 +47,7 @@ def test1():
   color = rand_color(blue=64, green=128, red=255)
   print(color)
 
-  color = rand_color(red=(0,255))
+  color = rand_color(red=(0, 255))
   print(color)
 
 

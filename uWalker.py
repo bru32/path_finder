@@ -1,7 +1,7 @@
 # Random walk utils
 
 """
-Random step with boundry limits.
+Random step with boundary limits.
 """
 
 __author__ = "Bruce Wernick"
@@ -46,7 +46,7 @@ def rand_step(x, y, d, nx, ny, edge_func=limit):
     forward, left, right = 1, 2, 0
   elif d == 2:
     forward, left, right = 2, 3, 1
-  else: # d = 3
+  else:  # d = 3
     forward, left, right = 3, 0, 2
 
   # random choice of new direction

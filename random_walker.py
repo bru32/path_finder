@@ -67,7 +67,7 @@ class MainForm(Frame):
       y += dy
 
   def shade_rect(self, cp, i, imax):
-    g = 2 # cell gap
+    g = 2  # cell gap
     dx = self.dx
     dy = self.dy
     x = cp.x * dx
@@ -118,7 +118,7 @@ class MainForm(Frame):
       forward, left, right = 1, 2, 0
     elif d == 2:
       forward, left, right = 2, 3, 1
-    else: # d = 3
+    else:  # d = 3
       forward, left, right = 3, 0, 2
 
     # random choice of new direction
