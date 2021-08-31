@@ -229,10 +229,12 @@ class Snake(tk.Frame):
 
 # ---------------------------------------------------------------------
 
-app = tk.Tk()
-app.title("tkinter snake template")
-app.geometry('640x680+880+50')
-app.resizable(False, False)
-snake = Snake(app)
-app.after(10, snake.animloop)
-app.mainloop()
+if __name__ == "__main__":
+
+  app = tk.Tk()
+  app.title("tkinter snake template")
+  app.geometry('640x680+880+50')
+  app.resizable(False, False)
+  snake = Snake(app)
+  app.after(10, snake.animloop)
+  app.mainloop()

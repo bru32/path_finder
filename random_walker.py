@@ -10,6 +10,7 @@ from colorsys import hls_to_rgb
 # Declaring Current Position class (using a recordclass)
 CurrPos = recordclass('CurrPos', 'x y d color')
 
+
 def color_step(i, imax):
   """step to a color based on the index
   """
@@ -20,6 +21,7 @@ def color_step(i, imax):
   r, g, b = int(r * 255), int(g * 255), int(b * 255)
   hx = rgb_to_hex(r, g, b)
   return hx
+
 
 def hex_to_rgb(value):
   """convert hex color to r,g,b values
@@ -64,9 +66,6 @@ def rand_color(r0=0, r1=255, g0=0, g1=255, b0=0, b1=255):
 
 # ---------------------------------------------------------------------
 
-# ---------------
-# MainForm class
-# ---------------
 
 class MainForm(Frame):
 
@@ -84,8 +83,7 @@ class MainForm(Frame):
     self.y0, self.y1 = 0, self.fheight
 
     # crate a drawing surface
-    self.canvas = Canvas(self,
-      width=self.fwidth, height=self.fheight, bg="#384a51")
+    self.canvas = Canvas(self, width=self.fwidth, height=self.fheight, bg="#384a51")
 
     # store current position cp = (x, y, d, color)
     self.cp = CurrPos(self.nx//2, self.ny//2, 0, "red")
