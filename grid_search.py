@@ -5,31 +5,13 @@ __date__ = '29 August 2021'
 
 
 from collections import deque
-import heapq
 from random import randint
-
-
-class PQueue:
-
-  """ Priority Queue using python heapq """
-
-  def __init__(self):
-    self.elements = []
-
-  def empty(self):
-    return not self.elements
-
-  def put(self, item, priority):
-    heapq.heappush(self.elements, (priority, item))
-
-  def get(self):
-    return heapq.heappop(self.elements)[1]
+from pqueue import PQueue
 
 
 class Grid:
-
-  """ 2D Rectangular grid with walls and weights """
-
+  """ 2D Rectangular grid with walls and weights
+  """
   def __init__(self, rows, cols):
     self.rows = rows
     self.cols = cols
@@ -293,10 +275,15 @@ def rand_grid(rows, cols, walls):
 
 def test1():
   """ example usage """
-  grid, start, goal = rand_grid(10, 10, 19)
+  rows = 10
+  cols = 10
+  walls = 19
+  grid, start, goal = rand_grid(rows, cols, walls)
   path = astar_search(grid, start, goal)
   print(path)
 
+
+# ---------------------------------------------------------------------
 
 if __name__ == "__main__":
 
