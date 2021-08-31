@@ -6,8 +6,8 @@ __date__ = "22 August 2021"
 
 import tkinter as tk
 from random import randint, choice
-import time
 from collections import deque
+
 
 def hex_to_rgb(value):
   hex = value.lstrip('#')
