@@ -26,7 +26,7 @@ class Snake(tk.Frame):
   def __init__(self, parent):
     super().__init__(parent)
     fw, fh = 600, 600
-    dx, dy = 25, 25
+    dx, dy = 30, 30
     self.fwidth = fw
     self.fheight = fh
     self.dx = dx
@@ -59,8 +59,20 @@ class Snake(tk.Frame):
     self.score = 0
     self.food = None
     self.move_food()
+
     self.canvas.place(x=20, y=20)
     self.pack(fill=tk.BOTH, expand=1)
+
+  def init_game(self):
+    self.x = self.nx // 2
+    self.y = self.ny // 2
+    self.dir = 'Right'
+    self.tail = []
+    self.ntail = 3  # starting tail
+    self.score = 0
+    self.food = None
+    self.move_food()
+
 
   def draw_grid(self):
     x0, x1 = self.x0, self.x1
@@ -165,9 +177,10 @@ class Snake(tk.Frame):
         if cp not in self.tail:
           spaces.append(cp)
 
-    if len(spaces) == 0:
+    if len(spaces) <= 1:
       print('Cannot find a place for the new food!')
-      app.destroy()
+      self.init_game()
+      #app.destroy()
 
     # place food in random spot
     self.food = choice(spaces)
