@@ -37,6 +37,7 @@ class Snake(tk.Frame):
     self.y0, self.y1 = 0, fh
 
     self.bind_all("<Key>", self.key_pressed)
+    parent.bind("<space>", self.space_bar)
 
     # score
     self.text = tk.StringVar()
@@ -47,7 +48,7 @@ class Snake(tk.Frame):
     # drawing canvas
     self.canvas = tk.Canvas(self, width=fw, height=fh, bg="#384a51")
 
-    self.canvas.bind_all("<space>", self.space_bar)
+
 
     self.draw_grid()
 
@@ -209,7 +210,7 @@ class Snake(tk.Frame):
     coords = x+g, y+g, x+dx-g, y+dy-g
     self.canvas.create_rectangle(coords, width=1, outline="#593408", fill="green", tag="food")
 
-  def space_bar(self):
+  def space_bar(self, e):
     """pause animation
     """
     global control
